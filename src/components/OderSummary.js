@@ -19,7 +19,7 @@ const img2 =
   'https://images.unsplash.com/photo-1481699143886-e4c9924af63d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1239&q=80'
 
 function OderSummary() {
-  const [total, setTotal] = useState(398 + 24.99)
+  const [total, setTotal] = useState(338.39)
   const [discountCode, setDiscountCode] = useState(false)
   const [message, setMessage] = useState('')
   const [codes, setCodes] = useState('')
