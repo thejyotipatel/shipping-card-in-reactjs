@@ -4,7 +4,6 @@ import {
   Text,
   Box,
   Flex,
-  Grid,
   Image,
   Select,
   Button,
@@ -13,7 +12,6 @@ import {
   Highlight,
 } from '@chakra-ui/react'
 import { TbMessageCircle, TbPhone } from 'react-icons/tb'
-import InputCmponent from './InputCmponent'
 const img1 =
   'https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
 const img2 =
@@ -23,11 +21,13 @@ function OderSummary() {
   const [total, setTotal] = useState(398 + 24.99)
   const [discountCode, setDiscountCode] = useState(false)
   const [message, setMessage] = useState('')
+  // const [megForm, setMegForm] = useState('')
   const [codes, setCodes] = useState('')
 
-  const onSubmit = (e) => {
-    e.preventDefault()
-  }
+  // const onSubmit = (e) => {
+  //   e.preventDefault()
+  //   setMegForm('')
+  // }
   const handleInput = (e) => {
     setCodes(e.target.value)
     // console.log(e.target.value)
@@ -42,7 +42,7 @@ function OderSummary() {
       setMessage('Please add discount code')
       return
     }
-    if (codes != '10per') {
+    if (codes !== '10per') {
       setMessage('Given code is not valid')
     }
 
@@ -54,20 +54,9 @@ function OderSummary() {
       console.log(discountCode, total, message)
     }
   }
-
-  // useEffect(() => {
-  //   if (user) {
-  //     setTimeout(() => {
-  //       navigate('/')
-  //     }, 3000)
-  //   }
-  // }, [user, navigate])
-
   useEffect(() => {
     if (message) {
       setTimeout(() => {
-        // setDiscountCode(false)
-        // setCodes('')
         setMessage('')
       }, 3000)
     }
@@ -75,7 +64,6 @@ function OderSummary() {
 
   return (
     <>
-      {/* <Grid> */}
       <VStack w='lg'>
         <Text fontSize='1em' fontWeight='semibold' textAlign='left'>
           Order Summery

@@ -1,4 +1,4 @@
-import { Box, Text, Input, SimpleGrid, InputT } from '@chakra-ui/react'
+import { Box, Text, Input } from '@chakra-ui/react'
 
 const InputCmponent = ({
   value,
