@@ -55,7 +55,7 @@ function OderSummary() {
   const removeDiscount = () => {
     setMessage('10% Discount code is remved')
     setDiscountCode(false)
-    setTotal(422.99)
+    setTotal(338.39)
   }
 
   useEffect(() => {
@@ -68,7 +68,7 @@ function OderSummary() {
 
   return (
     <>
-      <VStack w='lg'>
+      <VStack width='inherit'>
         <Text fontSize='1em' fontWeight='semibold' textAlign='left'>
           Order Summery
         </Text>
@@ -76,6 +76,7 @@ function OderSummary() {
         {/* Box */}
 
         <Flex
+          className='card'
           alignItems='center'
           justifyContent='space-between'
           gap='1em'
@@ -114,6 +115,7 @@ function OderSummary() {
         </Flex>
 
         <Flex
+          className='card'
           alignItems='center'
           justifyContent='space-between'
           gap='1em'

@@ -4,7 +4,7 @@ import InputCmponent from './InputCmponent'
 function PaymentInfo() {
   return (
     <>
-      <Grid gap='1em'>
+      <Grid className='shipping-method' gap='1em'>
         <Text fontSize='1em' fontWeight='semibold' textAlign='left'>
           Shipping Method
         </Text>
@@ -51,7 +51,7 @@ function PaymentInfo() {
       <Grid
         templateColumns='repeat(2, auto)'
         gap='1em'
-        m='1em'
+        // m='1em'
         alignItems='center'
       >
         <GridItem>
