@@ -85,7 +85,7 @@ function OderSummary() {
           alignItems='center'
           justifyContent='space-between'
           gap='1em'
-          width='100%'
+          width='90%'
         >
           <Image
             src={img2}
@@ -124,7 +124,7 @@ function OderSummary() {
           alignItems='center'
           justifyContent='space-between'
           gap='1em'
-          width='100%'
+          width='90%'
           paddingY='1em'
         >
           <Image
@@ -188,10 +188,9 @@ function OderSummary() {
           <Text
             fontSize='1em'
             fontWeight='bold'
-            display='flex'
-            justifyContent='space-between'
-            alignItems='center'
+            textAlign='center'
             color='red.300'
+            paddingTop='1em'
           >
             <Highlight
               query={message}
