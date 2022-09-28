@@ -10,8 +10,10 @@ import {
   Input,
   HStack,
   Highlight,
+  color,
 } from '@chakra-ui/react'
 import { TbMessageCircle, TbPhone } from 'react-icons/tb'
+import { AiOutlineMail, AiOutlineClose } from 'react-icons/ai'
 const img1 =
   'https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
 const img2 =
@@ -21,19 +23,13 @@ function OderSummary() {
   const [total, setTotal] = useState(398 + 24.99)
   const [discountCode, setDiscountCode] = useState(false)
   const [message, setMessage] = useState('')
-  // const [megForm, setMegForm] = useState('')
   const [codes, setCodes] = useState('')
 
-  // const onSubmit = (e) => {
-  //   e.preventDefault()
-  //   setMegForm('')
-  // }
   const handleInput = (e) => {
     setCodes(e.target.value)
-    // console.log(e.target.value)
   }
+  // add Discount
   const applyDiscount = () => {
-    // setMessage('')
     if (discountCode) {
       setMessage('discount code is applayed already')
       return
@@ -42,18 +38,27 @@ function OderSummary() {
       setMessage('Please add discount code')
       return
     }
-    if (codes !== '10per') {
+
+    if (codes !== '10PER') {
       setMessage('Given code is not valid')
+      return
     }
 
-    if (codes === '10per') {
+    if (codes === '10PER') {
       setMessage('10% Discount code is applied')
       setDiscountCode(true)
       let per = (10 / 100) * total
       setTotal(total - per)
-      console.log(discountCode, total, message)
+      return
     }
   }
+  // remove Discount
+  const removeDiscount = () => {
+    setMessage('10% Discount code is remved')
+    setDiscountCode(false)
+    setTotal(422.99)
+  }
+
   useEffect(() => {
     if (message) {
       setTimeout(() => {
@@ -114,7 +119,7 @@ function OderSummary() {
           justifyContent='space-between'
           gap='1em'
           width='100%'
-          paddingBottom='1em'
+          paddingY='1em'
         >
           <Image
             src={img1}
@@ -129,7 +134,7 @@ function OderSummary() {
               fontWeight='semibold'
               // textAlign='left'
             >
-              Bomboo Tan
+              Iconic Turquoise
             </Text>
             <Text fontSize='1em' textAlign='left' color='gray.500'>
               Size:20
@@ -148,26 +153,48 @@ function OderSummary() {
         </Flex>
 
         {/* add discount code */}
+
+        {discountCode ? (
+          <Button
+            bgColor='orange.100'
+            rightIcon={<AiOutlineClose />}
+            onClick={removeDiscount}
+          >
+            <Highlight
+              query={' 10% Discount code is applied!'}
+              styles={{ px: '3', py: '1', bg: 'orange.100' }}
+            >
+              10% Discount code is applied!
+            </Highlight>
+          </Button>
+        ) : (
+          <Text>
+            <Highlight
+              query={'10PER'}
+              styles={{ px: '2', py: '1', bg: 'orange.100' }}
+            >
+              Available coupon is 10PER for 10% discount.
+            </Highlight>
+          </Text>
+        )}
         {message && (
           <Text
-            fontSize='1.2em'
-            fontWeight='semibold'
+            fontSize='1em'
+            fontWeight='bold'
             display='flex'
             justifyContent='space-between'
             alignItems='center'
-            color='blue.300'
+            color='red.300'
           >
-            {message}
+            <Highlight
+              query={message}
+              styles={{ px: '2', py: '1', bg: 'red.100', color: 'red.700' }}
+            >
+              {message}
+            </Highlight>
           </Text>
         )}
-        {discountCode && (
-          <Highlight
-            query={' 10% Discount code is applied'}
-            styles={{ px: '1', py: '1', bg: 'orange.100' }}
-          >
-            10% Discount code is applied
-          </Highlight>
-        )}
+
         <Flex paddingY='2em' width='100%'>
           <Input
             value={codes}
@@ -262,12 +289,12 @@ function OderSummary() {
             fontSize='1.3em'
             colorScheme='linkedin'
             size='lg'
-            onClick={applyDiscount}
+            onClick={onsubmit}
           >
             Place Order
           </Button>
           <Text
-            fontSize='1em'
+            fontSize='1.2em'
             fontWeight='semibold'
             display='flex'
             justifyContent='space-between'
@@ -277,20 +304,19 @@ function OderSummary() {
             Have questions? or Need help to complete your order?
           </Text>
 
-          <HStack color='blue.500'>
+          <HStack color='blue.500' textAlign='center'>
             <Button bgColor='transparent' leftIcon={<TbMessageCircle />}>
               Live Chat
             </Button>
             <Button bgColor='transparent' leftIcon={<TbPhone />}>
               Phone
             </Button>
-            <Button bgColor='transparent' leftIcon={<TbPhone />}>
+            <Button bgColor='transparent' leftIcon={<AiOutlineMail />}>
               Email
             </Button>
           </HStack>
         </Box>
       </VStack>
-      {/* </Grid> */}
     </>
   )
 }
