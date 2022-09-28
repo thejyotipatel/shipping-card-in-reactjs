@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  width: min(90%, 1200px);
+  width: min(95%, 1200px);
   margin-inline: auto;
   display: grid;
   /* justify-content: center; */
@@ -15,19 +15,12 @@ body {
   place-content: stretch;
   grid-template-columns: repeat(1, 1fr);
 }
+
 .contant {
   width: inherit;
 }
 @media (min-width: 60em) {
   .container {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (min-width: 30em) {
-  .container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .card {
-    flex-direction: row;
   }
 }

@@ -11,7 +11,7 @@ function ShippingInfo() {
             fontSize='1em'
             fontWeight='semibold'
             textAlign='left'
-            marginY='1em'
+            marginY='2em'
             mb='2em'
           >
             Shipping Information

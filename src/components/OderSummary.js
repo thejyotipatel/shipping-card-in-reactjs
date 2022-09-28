@@ -68,8 +68,13 @@ function OderSummary() {
 
   return (
     <>
-      <VStack width='inherit'>
-        <Text fontSize='1em' fontWeight='semibold' textAlign='left'>
+      <VStack width='inherit' alignItems='stretch'>
+        <Text
+          fontSize='1em'
+          fontWeight='semibold'
+          textAlign='left'
+          marginY='2em'
+        >
           Order Summery
         </Text>
 
@@ -160,6 +165,7 @@ function OderSummary() {
             bgColor='orange.100'
             rightIcon={<AiOutlineClose />}
             onClick={removeDiscount}
+            textAlign='center'
           >
             <Highlight
               query={' 10% Discount code is applied!'}
@@ -169,7 +175,7 @@ function OderSummary() {
             </Highlight>
           </Button>
         ) : (
-          <Text>
+          <Text textAlign='center'>
             <Highlight
               query={'10PER'}
               styles={{ px: '2', py: '1', bg: 'orange.100' }}
@@ -220,7 +226,7 @@ function OderSummary() {
           </Button>
         </Flex>
 
-        <Box padding='1em' width='100%'>
+        <Box width='100%'>
           <Text
             fontSize='1.2em'
             fontWeight='semibold'
