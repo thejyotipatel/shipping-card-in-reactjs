@@ -10,7 +10,6 @@ import {
   Input,
   HStack,
   Highlight,
-  color,
 } from '@chakra-ui/react'
 import { TbMessageCircle, TbPhone } from 'react-icons/tb'
 import { AiOutlineMail, AiOutlineClose } from 'react-icons/ai'
