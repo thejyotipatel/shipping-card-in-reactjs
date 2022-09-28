@@ -1,6 +1,6 @@
 <div align="center">
   <h3>
-    <a href="https://loquacious-alpaca-b49b22.netlify.app/"
+    <a href="https://shipping-card-in-reactjs.netlify.app/"
     target="_blank" rel="noopener noreferrer" >
       Demo on Netlify
     </a>
